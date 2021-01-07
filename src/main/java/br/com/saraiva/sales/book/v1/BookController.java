@@ -39,7 +39,7 @@ public class BookController {
 
     @DeleteMapping("/{specificId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable String specificId){
-        bookService.delete(specificId);
+    public Mono<Void> delete(@PathVariable String specificId){
+        return bookService.delete(specificId);
     }
 }
