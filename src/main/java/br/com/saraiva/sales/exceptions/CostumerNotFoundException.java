@@ -1,11 +1,9 @@
 package br.com.saraiva.sales.exceptions;
 
-public class BookNotSaveException extends ServiceException{
+public class CostumerNotFoundException extends ServiceException {
     private static final long serialVersionUID = 1L;
 
-    public BookNotSaveException(String identifier) {
+    public CostumerNotFoundException(String identifier) {
         super(identifier);
-        
     }
-    
 }

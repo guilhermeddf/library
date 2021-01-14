@@ -1,10 +1,15 @@
 package br.com.saraiva.sales.costumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.saraiva.sales.costumer.dto.ApiCostumerRequest;
+import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
+@AllArgsConstructor
 public class CostumerServiceImpl implements CostumerService {
 
     @Autowired
@@ -20,16 +25,21 @@ public class CostumerServiceImpl implements CostumerService {
         return costumerRepository.findAll();
     }
 
+    
     @Override
-    public Mono<Costumer> updateCostumer(String specificId) {
-        return costumerRepository.findBySpecificId(specificId);
-        //TODO fazer o update dos dados
+    public Mono<Costumer> updateCostumer(String specificId, ApiCostumerRequest costumerRequest){
+       /*
+        Costumer c =  costumerRepository.findBySpecificId(specificId)
+        .switchIfEmpty(Mono.error(new CostumerNotFoundException("identifier"))).flatMap(p -> );
+         fazer o update dos dados */
+        return null;
     }
+
+
 
     @Override
     public Mono<Costumer> getBySpecificId(String specificId) {
-        // TODO Auto-generated method stub
-        return null;
+        return costumerRepository.findBySpecificId(specificId);
     }
 
     @Override
