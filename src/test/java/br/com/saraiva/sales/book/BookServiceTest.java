@@ -59,4 +59,11 @@ public class BookServiceTest {
         StepVerifier.create(bookService.getBySpecificId(anyString()))
         .expectError(BookNotFoundException.class);
     }
+
+    @Test
+    @DisplayName("Deve retornar livro ja salvo com esse specific id")
+    void shouldThrowBookAlreadySavedException(){
+        Book book = BookBuilder.createBook();
+        //when(bookRepository.findBySpecificId(anyString())).thenReturn(Mono.);
+    }
 }

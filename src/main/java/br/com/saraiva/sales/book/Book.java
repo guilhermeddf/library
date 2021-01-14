@@ -26,6 +26,7 @@ public class Book implements Serializable{
     private String tittle;
     private String author;
     private String year;
+    private Long price;
 
     public static Book fromApiBookRequest(ApiBookRequest apiBookRequest){
         
@@ -34,6 +35,7 @@ public class Book implements Serializable{
         .specificId(apiBookRequest.getSpecificId())
         .tittle(apiBookRequest.getTittle())
         .year(apiBookRequest.getYear())
+                .price(apiBookRequest.getPrice())
         .build();
     }
 }

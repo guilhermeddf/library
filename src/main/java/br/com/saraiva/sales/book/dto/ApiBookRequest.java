@@ -13,4 +13,5 @@ public class ApiBookRequest {
     private String tittle;
     private String author;
     private String year;
+    private Long price;
 }

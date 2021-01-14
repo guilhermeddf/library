@@ -1,18 +1,14 @@
 package br.com.saraiva.sales.costumer.v1;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
-
 import br.com.saraiva.sales.costumer.Costumer;
 import br.com.saraiva.sales.costumer.CostumerService;
 import br.com.saraiva.sales.costumer.dto.ApiCostumerRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import javax.print.attribute.standard.Media;
 
 @RestController
 @RequestMapping("/api/v1/costumers")

@@ -26,6 +26,8 @@ public class Costumer implements Serializable{
     private String cpf;
     private String specificId;
 
+    private Long credit = 0L;
+
     public static Costumer fromApiCostumerRequest(ApiCostumerRequest apiCostumerRequest){
         return Costumer.builder()
         .firstName(apiCostumerRequest.getFirstName())
