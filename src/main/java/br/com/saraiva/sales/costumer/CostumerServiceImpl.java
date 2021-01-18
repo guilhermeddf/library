@@ -1,5 +1,6 @@
 package br.com.saraiva.sales.costumer;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +10,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CostumerServiceImpl implements CostumerService {
 
-    @Autowired
-    private CostumerRepository costumerRepository;
+    private final CostumerRepository costumerRepository;
 
     @Override
     public Mono<Costumer> save(Costumer costumer) {
@@ -45,5 +45,10 @@ public class CostumerServiceImpl implements CostumerService {
     @Override
     public Mono<Void> deleteBySpecificId(String specificId) {
         return costumerRepository.deleteBySpecificId(specificId);
+    }
+
+    @Override
+    public Mono<Long> findCreditBySpecificId(String specificId) {
+        return null;
     }
 }

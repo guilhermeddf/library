@@ -1,9 +1,9 @@
 package br.com.saraiva.sales.exceptions;
 
-public class CostumerNotFoundException extends ServiceException {
+public class CostumerNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public CostumerNotFoundException(String identifier) {
-        super(identifier);
+    public CostumerNotFoundException(String message) {
+        super(message);
     }
 }

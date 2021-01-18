@@ -9,5 +9,6 @@ public interface BookService {
     Flux<Book> list();
     Mono<Book> getBySpecificId(String specificId);
     Mono<Void> delete(String specificId);
+    Mono<Boolean> existsBySpecificId(String specificId);
     
 }

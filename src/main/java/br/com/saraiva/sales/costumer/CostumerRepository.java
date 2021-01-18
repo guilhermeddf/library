@@ -11,4 +11,5 @@ public interface CostumerRepository extends ReactiveMongoRepository<Costumer, St
     Mono<Costumer> findBySpecificId(String specificId);
     Mono<Void> deleteBySpecificId(String specificId);
     Mono<Costumer> save(Costumer costumer);
+    Mono<Long> findCreditBySpecificId(String specificId);
 }

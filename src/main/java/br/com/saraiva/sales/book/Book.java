@@ -2,6 +2,7 @@ package br.com.saraiva.sales.book;
 
 import java.io.Serializable;
 
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

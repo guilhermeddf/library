@@ -11,4 +11,5 @@ public interface CostumerService {
     Mono<Costumer> updateCostumer(String specificId, ApiCostumerRequest apiCostumerRequest);
     Mono<Costumer> getBySpecificId(String specificId);
     Mono<Void> deleteBySpecificId(String specificId);
+    Mono<Long> findCreditBySpecificId(String specificId);
 }

@@ -25,4 +25,6 @@ public class Sale implements Serializable {
     private Costumer costumer;
 
     private Long total;
+
+    private SaleStatus saleStatus;
 }

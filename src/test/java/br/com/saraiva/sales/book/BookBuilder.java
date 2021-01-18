@@ -8,6 +8,7 @@ public class BookBuilder {
         .tittle("O Best Seller do ano")
         .year("1991")
         .specificId("10010")
+                .price(15L)
         .build();
     }
     

@@ -17,9 +17,8 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/v1/books")
 @RequiredArgsConstructor
 public class BookController {
-
-    @Autowired
-    private BookService bookService;
+    
+    private final BookService bookService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)

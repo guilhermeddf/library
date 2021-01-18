@@ -4,6 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
+import br.com.saraiva.sales.exceptions.BookAlreadyExistsException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class BookServiceTest {
 
     @Test
     @DisplayName("Deve salvar um livro com sucesso")
-    void shouldSaveSucefullly(){
+    void shouldSaveSuccessfully(){
 
         Book book = BookBuilder.createBook();
         
@@ -49,7 +50,7 @@ public class BookServiceTest {
         .thenAnswer(i -> Mono.just(i.getArgument(0)));
         StepVerifier.create(bookService.getBySpecificId(anyString()))
         .expectNext(book)
-        .expectComplete();
+        .expectComplete().verify();
     }
 
     @Test
@@ -57,13 +58,15 @@ public class BookServiceTest {
     void shouldThrowBookNotFoundException(){
         when(bookRepository.findBySpecificId(anyString())).thenReturn(Mono.empty());
         StepVerifier.create(bookService.getBySpecificId(anyString()))
-        .expectError(BookNotFoundException.class);
+        .expectError(BookNotFoundException.class).verify();
     }
 
     @Test
     @DisplayName("Deve retornar livro ja salvo com esse specific id")
     void shouldThrowBookAlreadySavedException(){
         Book book = BookBuilder.createBook();
-        //when(bookRepository.findBySpecificId(anyString())).thenReturn(Mono.);
+        when(bookRepository.findBySpecificId("10010")).thenReturn(Mono.just(book));
+        StepVerifier.create(bookService.save(book)).expectError(BookAlreadyExistsException.class)
+        .verify();
     }
 }
